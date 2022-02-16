@@ -9,14 +9,14 @@ def area_circunferencia(radio):
 
     area = pi * radio**2
 
-    print(area)
+    return area
 
 
 def valor_incrementado(valor):
 
     valor_aumentado = valor * 1.10
 
-    print(valor_aumentado)
+    return valor_aumentado
 
 
 def longitud_circ(radio):
@@ -24,21 +24,23 @@ def longitud_circ(radio):
     pi = 3.1416
     longitud = 2 * pi * radio
 
-    print(longitud)
+    return longitud
 
 
 radio = float(input("Ingresa el radio del circulo: "))
 
 longitud_circunferencia = longitud_circ(radio)
 
-print("La longitud del circulo es: " + longitud_circunferencia)
+print(f"La longitud del circulo es: {longitud_circunferencia} ")
 
 area_circunferencia = area_circunferencia(radio)
 
-print("El area del circulo es: " + area_circunferencia)
+print(f"El area del circulo es: {area_circunferencia} ")
 
 print("--------------------------------------------------")
 
-valor = int(input("Digita un valor: "))
+valor = float(input("Digita un valor: "))
 
-print("El valor incrementado en un 10 por ciento es: ")
+valor_aumentado = valor_incrementado(valor)
+
+print(f"El valor incrementado en un 10 por ciento es: {valor_aumentado} ")
