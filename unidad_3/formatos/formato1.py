@@ -5,12 +5,15 @@ lista1 = [True, "pera", 4]
 # print(entero1, entero2, lista1, sep=" / ", end="!\t")
 # print(entero1, entero2, lista1)
 
-print(lista1)
+# print(lista1)
 a, b, c = [True, "pera", 4]
-print(a, b, c)
+# print(a, b, c)
 
 a, *b = [True, "pera", 4]
-print(a, b, type(b))
+# print(a, b, type(b))
+
+a, b, *c = [True, "pera", 4]
+print(a, b, c, type(c))
 
 a, *b = "Pera"
-print(a, b, type(b))
+# print(a, b, type(b))
