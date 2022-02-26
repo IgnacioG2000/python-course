@@ -8,6 +8,7 @@ print(mi_tupla)
 print(type(mi_tupla))
 print(mi_tupla[0])
 
+
 print("-LISTA-" * 23)
 print(id(mi_lista))
 mi_lista += [2, 3]
