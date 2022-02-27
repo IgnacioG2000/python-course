@@ -2,7 +2,7 @@
 # lista las compras realizadas.
 
 valor = input(
-    "Para comenzar a agregar productos, presione i; sino presione cualquier tecla: "
+    "Para agregar productos, presione i; sino presione cualquier tecla: "
 ).lower()
 total = 0
 compras = []
@@ -22,7 +22,7 @@ while valor == "i":
     compras.append([nombre, cantidad, precio])
 
 for x in compras:
-    print(f"Producto: {x[0]}, Cantidad en kg: {x[1]}, Precio por c/ kg: {x[2]} ")
+    print(f"Producto:{x[0]},Cantidad en kg:{x[1]},Precio por c/ kg:{x[2]}")
 
 print(f"El monto total gastado es: {total}")
 print(f"Las compras realizadas son: {compras}")

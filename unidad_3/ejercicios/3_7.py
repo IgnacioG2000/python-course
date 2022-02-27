@@ -2,7 +2,7 @@
 # diccionario las compras realizadas.
 
 valor = input(
-    "Para comenzar a agregar productos, presione i; sino presione cualquier tecla: "
+    "Para agregar productos, presione i; sino presione cualquier tecla: "
 ).lower()
 total = 0
 compras = {}
