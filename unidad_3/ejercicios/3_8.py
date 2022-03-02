@@ -49,7 +49,7 @@ def baja(compras_realizadas, total):
                 f"El producto numero {index} es {compra[0]}, la cantidad es {compra[1]} kg y el precio es $ {compra[2]}\n"
             )
 
-    # return "Y",total_gastado_local
+    return total_gastado_local
 
 
 def consultar(compras_realizadas_local):
@@ -87,6 +87,8 @@ def modificar(compras_realizadas_local, total):
             else:
                 print("Ese producto no se encuentra en el changuito.")
 
+    return total
+
 
 def menu():
 
@@ -107,13 +109,16 @@ if iniciar_compra == "Y":
         menu()
         opcion = int(input("Ingresa la opcion deseada: "))
         if opcion == 1:
-            alta(compras, total_gastado)
+            aux = alta(compras, total_gastado)
+            total_gastado = aux
         elif opcion == 2:
-            baja(compras, total_gastado)
+            aux = baja(compras, total_gastado)
+            total_gastado = aux
         elif opcion == 3:
             consultar(compras)
         elif opcion == 4:
-            modificar(compras, total_gastado)
+            aux = modificar(compras, total_gastado)
+            total_gastado = aux
         elif opcion == 5:
             print("Gracias por usar nuestra verduleria")
             continuar_comprando = "N"
