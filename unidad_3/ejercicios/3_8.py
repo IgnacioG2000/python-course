@@ -11,6 +11,7 @@ iniciar_compra = ""
 continuar_comprando = ""
 compras = []
 total_gastado = 0
+index = 1
 
 
 def alta(compras_realizadas, total):
@@ -21,71 +22,70 @@ def alta(compras_realizadas, total):
 
     total += cantidad * precio
 
-    compra = [nombre, cantidad, total]
+    global index
+
+    compra = [index, nombre, cantidad, total]
     compras_realizadas.append(compra)
+
+    index += 1
 
     return total
 
 
 def baja(compras_realizadas, total):
-    producto_a_quitar = input("Ingresa el producto a eliminar: ")
+    index_producto_a_quitar = int(input("Ingresa el indice del producto a eliminar: "))
 
     if compras_realizadas is None:
         print("El carrito esta vacio")
 
     else:
         for compra in compras_realizadas:
-            if compra[0] == producto_a_quitar:
-                total -= compra[2]
-                compras_realizadas.remove([compra[0], compra[1], compra[2]])
+            if compra[0] == index_producto_a_quitar:
+                total -= compra[3]
+                compras_realizadas.remove([compra[0], compra[1], compra[2], compra[3]])
             else:
                 print("No esta ese producto en el changuito")
 
         print("Las compras hasta el momento son las siguientes:")
-        index = 0
-        for compra in compras_realizadas:
-            index += 1
-            print(
-                f"El producto numero {index} es {compra[0]}, la cantidad es {compra[1]} kg y el precio es $ {compra[2]}\n"
-            )
+        print(compras_realizadas)
 
-    return total_gastado_local
+    return total
 
 
-def consultar(compras_realizadas_local):
-    index = 0
-    if compras_realizadas_local is None:
+def consultar(compras_realizadas):
+    if compras_realizadas is None:
         print("No hay compras hasta el momento")
 
     else:
-        print("Las compras hasta el momento son las siguientes:")
-        for compra in compras_realizadas_local:
-            index += 1
-            print(
-                f"El producto numero {index} es {compra[0]}, la cantidad es {compra[1]} kg y el precio es $ {compra[2]}\n"
-            )
+        print(f"Las compras hasta el momento son las siguientes: {compras_realizadas}")
 
 
-def modificar(compras_realizadas_local, total):
-    producto_a_modificar = input("Ingrese el producto a modificar: ")
+def modificar(compras_realizadas, total):
+    index_producto_a_modificar = int(
+        input("Ingrese el indice del producto a modificar: ")
+    )
 
-    if compras_realizadas_local is None:
+    if compras_realizadas is None:
         print("El carrito esta vacio")
 
     else:
-        for compra in compras_realizadas_local:
-            if compra[0] == producto_a_modificar:
+        for compra in compras_realizadas:
+            if compra[0] == index_producto_a_modificar:
                 producto_nuevo = input("Ingrese el nuevo producto: ")
                 cantidad_nueva = int(input("Ingrese la cantidad en kg nueva: "))
                 precio_nuevo = int(input("Ingrese el precio por kg: "))
 
                 total = cantidad_nueva * precio_nuevo
-                compra[0] = producto_nuevo
-                compra[1] = cantidad_nueva
-                compra[2] = total
+
+                compra[0] = index_producto_a_modificar
+                compra[1] = producto_nuevo
+                compra[2] = cantidad_nueva
+                compra[3] = total
 
             else:
                 print("Ese producto no se encuentra en el changuito.")
+
+    print(f"Las compras hasta el momento son las siguientes: {compras_realizadas}")
 
     return total
 
@@ -125,6 +125,7 @@ if iniciar_compra == "Y":
 
     print(f"El total gastado en la compra es de $ {total_gastado}")
     s.exit()
+
 else:
     print("Gracias. Vuelva pronto")
     s.exit()
