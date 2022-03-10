@@ -46,14 +46,13 @@ def baja(compras_realizadas, total):
             else:
                 print("No esta ese producto en el changuito")
 
-        print("Las compras hasta el momento son las siguientes:")
-        print(compras_realizadas)
+        print("Las compras hasta el momento son las siguientes: {compras_realizadas}")
 
     return total
 
 
 def consultar(compras_realizadas):
-    if compras_realizadas is None:
+    if len(compras_realizadas) == 0:
         print("No hay compras hasta el momento")
 
     else:
@@ -65,7 +64,7 @@ def modificar(compras_realizadas, total):
         input("Ingrese el indice del producto a modificar: ")
     )
 
-    if compras_realizadas is None:
+    if len(compras_realizadas) == 0:
         print("El carrito esta vacio")
 
     else:
