@@ -2,8 +2,9 @@ import sqlite3
 
 
 def crear_base():
-    con = sqlite3.connect('mibase.db')
+    con = sqlite3.connect("mibase.db")
     return con
+
 
 def insertar(con, mi_id, nombre):
     cursor = con.cursor()
@@ -13,10 +14,10 @@ def insertar(con, mi_id, nombre):
     cursor.execute(sql, data)
     con.commit()
 
+
 con = crear_base()
 
 insertar(con, 3, "Anna2")
 insertar(con, 4, "Anna2")
 insertar(con, 5, "Anna2")
 insertar(con, 6, "Anna2")
-

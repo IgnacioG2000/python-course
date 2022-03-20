@@ -11,8 +11,8 @@ def funcion_e():
 def funcion_s():
     if askyesno("Título de la consulta de verificación", "Contenido de la consulta"):
         showinfo("Si", "Mensaje de información")
-    else:
-        showinfo("No", "Esta a punto de salir")
+    # else:
+    #   showinfo("No", "Esta a punto de salir")
 
 
 boton_e = Button(master, text="Error", command=funcion_e)

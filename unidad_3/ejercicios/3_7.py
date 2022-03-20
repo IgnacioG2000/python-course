@@ -19,11 +19,8 @@ while valor == "i":
         "sino presione cualquier tecla: "
     ).lower()
 
-    compras = {
-        "nombre": nombre,
-        "cantidad_en_kg": cantidad,
-        "precio_cada_kg": precio,
-    }
+    for x in compras.items():
+        print(f"Producto: {x[0]}, Cantidad: {x[1]}, Precio: {x[2]}")
 
 print(f"El monto total gastado es: {total}")
 print(f"Las compras realizadas son: {compras}")
